@@ -4,4 +4,4 @@ happens and it is not 2 hours yet.
 
 If you check option "Ignore post-commit hooks" along with the above cron expression 
 in Poll SCM, this will Ignore changes notified by SCM post-commit hooks and now the 
-build will be triggered only if there is a commit and it has been 2 hours.
+build will be triggered only if there is a commit and it has been 2 hours..

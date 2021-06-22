@@ -4,14 +4,13 @@ pipeline {
 	stage('Maven Compile'){
 		steps{
 			echo 'Project compile stage'
-			bat label: 'Compilation running', script: '''another-maven-project/mvn compile'''
+			bat label: 'Compilation running', script: '''mvn compile'''
 	       	}
 	}
 	
 	stage('Unit Test') {
 	   steps {
 			echo 'Project Testing stage'
-		   	cd another-maven-project
 			bat label: 'Test running', script: '''mvn test'''
 	       
        		}
@@ -26,7 +25,6 @@ pipeline {
        
        stage('SonarQube'){
 		steps{
-				cd another-maven-project
 				bat label: '', script: '''mvn sonar:sonar \
 				-Dsonar.host.url=http://localhost:4950 \
 				-Dsonar.login=2d1ec4021e5735308a130599522684e3074c7918'''
@@ -35,7 +33,6 @@ pipeline {
 	
 	stage('Maven Package'){
 		steps{
-			cd another-maven-project
 			echo 'Project packaging stage'
 			bat label: 'Project packaging', script: '''mvn package'''
 		}
